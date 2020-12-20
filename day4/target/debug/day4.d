@@ -1,1 +1,0 @@
-/home/wowo/Projects/AdventOfCode2020/day4/target/debug/day4: /home/wowo/Projects/AdventOfCode2020/day4/src/functions.rs /home/wowo/Projects/AdventOfCode2020/day4/src/lib.rs /home/wowo/Projects/AdventOfCode2020/day4/src/main.rs
