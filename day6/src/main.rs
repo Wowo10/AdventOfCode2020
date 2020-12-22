@@ -5,22 +5,30 @@ fn main() {
 
     let mut counter = 0;
     for elem in &input {
-        counter += count_unique_characters(elem);
+        counter += count_unique_characters(|c| elem.any_answered(c));
     }
 
-    println!("Result: {}", counter)
+    println!("Result1: {}", counter);
+    counter = 0;
+    for elem in &input {
+        counter += count_unique_characters(|c| elem.all_answered(c));
+    }
+
+    println!("Result2: {}", counter);
 }
 
-fn count_unique_characters(input: &str) -> i32 {
+fn count_unique_characters<F>(f: F) -> i32
+where
+    F: Fn(char) -> bool,
+{
     let mut counter = 0;
     for i in 0..26 {
         let c = add_char('a', i);
 
-        if input.contains(c) {
+        if f(c) {
             counter += 1;
         }
     }
-    
     counter
 }
 
